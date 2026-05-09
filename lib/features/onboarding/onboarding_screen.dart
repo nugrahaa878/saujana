@@ -5,6 +5,7 @@ import 'package:saujana/core/router/app_router.dart';
 import 'package:saujana/core/theme/app_colors.dart';
 import 'package:saujana/core/theme/app_spacing.dart';
 import 'package:saujana/core/theme/app_text_styles.dart';
+import 'package:saujana/core/widgets/saujana_logo.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -22,17 +23,7 @@ class OnboardingScreen extends StatelessWidget {
             children: [
               const SizedBox(height: AppSpacing.s12),
 
-              // Icon placeholder
-              Container(
-                width: 64,
-                height: 64,
-                decoration: BoxDecoration(
-                  color: AppColors.actionSubtle,
-                  borderRadius: BorderRadius.circular(AppRadius.md),
-                ),
-                child: Icon(Icons.self_improvement_outlined,
-                    size: 32, color: AppColors.actionDefault),
-              ),
+              const SaujanaLogo(size: 72),
               const SizedBox(height: AppSpacing.s8),
 
               Text(
