@@ -1,6 +1,6 @@
 # PRD — Saujana: GAD-7 Anxiety Screening App
 
-**Version:** 1.1  
+**Version:** 1.2  
 **Date:** 2026-05-09  
 **Status:** Draft  
 **Author:** Product Team  
@@ -13,6 +13,8 @@ Saujana is a fully offline, zero-backend mobile application (Flutter, iOS & Andr
 
 **Architectural constraint:** Saujana has no backend, no server, no network dependency, and no cloud sync — permanently. All data lives exclusively on the user's device in a local database. This is a product and architectural decision, not a deferral.
 
+**Zero friction, zero gates:** There is no login, no sign-up, no onboarding form, no email, no account of any kind — ever. The user opens the app, takes the assessment, and gets their result. That is the entire entry flow. Any feature proposal that requires identity must be rejected.
+
 The name *Saujana* (Malay/Indonesian: "as far as the eye can see") reflects the goal: giving users perspective on their own mental state that they could not see clearly on their own.
 
 ---
@@ -23,21 +25,26 @@ The name *Saujana* (Malay/Indonesian: "as far as the eye can see") reflects the 
 
 > The Mom Test principle: don't ask "would you use this?" — look at what people already do.
 
-Observable behaviors that confirm the problem exists:
+Observable behaviors that confirm the problem exists — specific to our target cohort (Gen Z and Millennials in 9-5 work):
 
-- People already search "am I anxious test", "anxiety quiz", and "GAD-7 online" millions of times per month — they self-diagnose with low-quality, un-scored web pages.
-- Users report describing anxiety symptoms to a GP and being told "you seem fine" because the conversation is unstructured; they leave without validated evidence of what they're experiencing.
-- People track mood in Notes, spreadsheets, or journaling apps with no clinical framework — data exists but is not actionable.
-- Mental health waitlists in most countries are 3–12 months. Users need something between "nothing" and "weekly therapy."
+- People search "am I anxious test", "anxiety quiz", and "GAD-7 online" millions of times per month — mostly on their phones after work hours, self-diagnosing with low-quality, un-scored web pages.
+- The "Sunday scaries" is a widely recognized phenomenon: anxiety that peaks Sunday evening dreading the work week. Users describe it as a recurring pattern but do not connect it to clinical anxiety.
+- Workers in always-on office cultures (Slack after hours, after-hours emails) report feeling unable to mentally leave work, but dismiss it as "just being busy" rather than anxiety symptoms.
+- Sandwich generation users — simultaneously caring for aging parents and raising children — report feeling guilty asking for help for themselves because everyone else's needs feel more urgent.
+- People track mood in Notes or journaling apps with no clinical framework. Data exists but produces no actionable insight.
+- Indonesian mental health waitlists are long; online therapy is expensive relative to median salary. Users need something between "nothing" and "weekly therapy."
+- Gen Z and Millennials heavily use TikTok and Instagram to validate their emotional experiences — they already consume mental health content there but get no personalized, scored result.
 
 ### What People Do Today (Current Behavior)
 
 | Behavior | Pain it reveals |
 |---|---|
-| Google symptoms, read WebMD | No personalized scoring or tracking |
-| Fill paper GAD-7 at a clinic visit | Infrequent, no history, no context |
-| Tell friends "I've been stressed" | Vague; not actionable; social pressure distorts honesty |
-| Download generic wellness apps | Meditations don't address the need to know "how bad is it?" |
+| Search anxiety symptoms at 11pm after doom scrolling | Self-diagnosing with no framework; comparing to worst-case scenarios online |
+| Vent to close friends on WhatsApp | Vague and socially filtered; friends validate but cannot quantify |
+| Fill paper GAD-7 at a clinic visit | Infrequent, no history, no context — and many never reach the clinic |
+| Download generic wellness apps (meditation, journaling) | Doesn't answer "how bad is it actually?" — the core question |
+| Push through and say "I'm just tired" | Delays recognition until symptoms are severe |
+| Sandwich gen: prioritize everyone else's health appointments before their own | Their own mental health check is always the last item on the list |
 
 ### What We Are NOT Solving
 
@@ -49,29 +56,51 @@ Observable behaviors that confirm the problem exists:
 
 ## 3. Target Users
 
-### Primary: The Undiagnosed Worrier (Ages 18–40)
+### Primary: The Burnt-Out 9-5 Worker (Gen Z & Millennial, Ages 22–38)
 
 **Profile:**
-- Has experienced recurring anxious thoughts, restlessness, or sleep disruption for weeks
-- Has never been formally screened or diagnosed
-- Is curious whether what they feel is "normal" or clinically significant
-- Will not book a therapy appointment without evidence it is needed ("I don't want to waste a therapist's time")
+- Works a standard office or hybrid job; commutes or WFH but mentally never fully off-clock
+- Grew up with smartphones — expects any app interaction to be fast, frictionless, and honest
+- Aware that mental health matters (has consumed mental health content on TikTok/Instagram) but hasn't translated awareness into action for themselves
+- Experiencing recurring anxiety symptoms — restlessness, trouble relaxing, sleep disruption — but attributes them to "work stress" or "just being busy"
+- Will not book a therapy appointment without first validating that their experience is clinically significant ("I don't want to bother a therapist with something that's probably normal")
+- Time-poor: the app must be completable during a lunch break or the commute home
 
-**Key insight from Mom Test framing:** They don't want to be told they're anxious. They want *permission* — a credible signal that their experience warrants attention. The GAD-7 score gives them that.
+**Key insight from Mom Test framing:** They already know they're stressed. What they don't know is whether it's *enough* to act on. The GAD-7 score is the permission slip. Write everything as if speaking to someone who is smart, self-aware, and tired — not someone who needs to be convinced that mental health is real.
 
-### Secondary: The Already-Aware Tracker (Ages 25–50)
+**Trigger moments (when they are most likely to open the app):**
+- Sunday evening (pre-work-week anxiety spike)
+- After a stressful meeting or performance review
+- End of a bad week
+- Lying in bed unable to sleep
+
+---
+
+### Secondary: The Sandwich Generation Caregiver (Millennial, Ages 28–42)
 
 **Profile:**
-- Has been diagnosed with GAD or depression previously
-- Is in or between therapy and wants to self-monitor
-- Uses apps habitually to track habits, health, and mood
-- Wants to share a score history with their therapist to save session time
+- Simultaneously managing: a 9-5 job, aging parent(s) who need regular support, and their own children or younger siblings
+- Financial pressure from both ends — supporting parents and children on a single or dual income
+- Chronically time-poor and emotionally depleted; their own self-care is the first thing they sacrifice
+- Cognitively overwhelmed: always running a mental checklist of other people's needs
+- Likely to score Moderate or Severe on GAD-7 but hasn't noticed because their baseline has been elevated for so long it feels normal
+- High guilt around self-focus: "everyone else is struggling more than I am"
 
-### Out-of-Scope Users (for v1)
+**Key insight from Mom Test framing:** They will not open an app that feels like another task to manage. The framing must be: "this takes 2 minutes and you owe yourself at least that." The result must validate their experience without catastrophizing — they're already carrying enough.
+
+**Trigger moments:**
+- After putting the kids to bed (the only quiet moment in the day)
+- After a difficult conversation with an aging parent
+- During a rare moment alone (commute, waiting room)
+
+---
+
+### Out-of-Scope Users
 
 - Users in acute psychiatric crisis (we will redirect, not serve)
 - Children under 18 (GAD-7 not validated for this group)
 - Clinical professionals (different product, different regulatory path)
+- Users looking for a general wellness or meditation app — Saujana is a screening tool, not a mood tracker
 
 ---
 
@@ -81,10 +110,11 @@ Observable behaviors that confirm the problem exists:
 
 | Goal | Why It Matters |
 |---|---|
-| Users complete the GAD-7 in under 3 minutes | Completion is the core action; friction kills it |
+| Users complete the GAD-7 in under 3 minutes | Our users have a lunch break, a commute, or 2 minutes before the next family demand — the entire flow must fit |
 | Users understand their score without reading a manual | If they need to Google the result, we failed |
 | Users return to take the assessment again in 2–4 weeks | Single-shot use = no retention, no value from tracking |
 | Users who score Moderate+ know a concrete next step | Impact requires action, not just awareness |
+| Copy never makes users feel judged or broken | Burnt-out Gen Z/Millennials are allergic to corporate wellness language and self-blame framing |
 
 ### North Star Metric
 
@@ -116,10 +146,13 @@ As a user, I want to answer 7 questions about how I have felt over the past 2 we
 As a user, I want to see my score (0–21), its severity category, and a plain-language explanation, so that I understand what my number means without needing to research it.
 
 **US-04 — Next Steps**  
-As a user with a Moderate or Severe score, I want to see specific, actionable next steps (talk to a GP, find a therapist, crisis line), so that the score leads somewhere useful and not just alarming.
+As a user with a Moderate or Severe score, I want to see specific, actionable next steps (talk to a GP, check if my employer has an EAP, find an online therapist, crisis line), so that the score leads somewhere useful and not just alarming.
 
 **US-05 — History Tracking**  
-As a returning user, I want to see a timeline of my past scores so that I can understand whether my anxiety has improved, worsened, or stayed the same.
+As a returning user, I want to see a timeline of my past scores — including what day of the week each was taken — so that I can spot whether my anxiety is consistently higher on certain days (e.g., Mondays or before deadlines).
+
+**US-05b — Sandwich Gen Validation**  
+As a sandwich generation user who always puts others first, I want to complete the assessment in under 3 minutes without setting up an account, so that I can check in on myself during the one quiet moment I have without it feeling like another task.
 
 **US-06 — Reminder**  
 As a user, I want to set a reminder to retake the assessment in 2 weeks so that I build a consistent tracking habit without relying on memory.
@@ -137,6 +170,8 @@ As a user, I want my responses and results stored exclusively on my device, so t
 ### 6.1 Onboarding (Must Have — v1)
 
 - [ ] Single-screen onboarding explaining what GAD-7 is (≤ 3 sentences), who developed it, and what the score means at a high level
+- [ ] Copy tone: direct and grounded, not clinical or corporate — write for someone who is smart and tired, not someone who needs to be convinced that anxiety is real
+- [ ] Explicitly state "takes about 2 minutes" — critical for time-poor users
 - [ ] "Start Assessment" CTA — no account creation, no sign-in of any kind
 - [ ] Optional: soft permission prompt for notifications (for reminders), deferred to after first completion
 
@@ -213,11 +248,20 @@ Severity Categories:
 
 **Interpretation copy examples (to be refined with clinical advisor):**
 
-> **Mild (5–9):** You're experiencing some anxiety symptoms. Many people have periods like this, especially during stressful times. Keeping an eye on how you feel over the next 2 weeks is a good idea.
+Copy guidelines for this demographic:
+- Validate the systemic pressure (work, family, caregiving), not just the individual symptom
+- Never use corporate wellness language ("self-care journey", "wellness check-in")
+- Be direct — Gen Z and Millennials respect honesty over comfort
+- Acknowledge that their situation is genuinely hard, not just a perception problem
+- Avoid self-blame framing; avoid catastrophizing
 
-> **Moderate (10–14):** Your symptoms suggest a moderate level of anxiety that may be affecting your daily life. Talking to a GP or mental health professional is a worthwhile step — your score gives you something concrete to show them.
+> **Minimal (0–4):** Things look relatively calm right now. That doesn't mean what you're carrying isn't real — it just means your anxiety symptoms aren't in a clinical range at the moment. Check back in a couple of weeks.
 
-> **Severe (15–21):** Your score indicates significant anxiety. Please consider reaching out to a healthcare professional soon. This level of anxiety is treatable and you don't have to manage it alone.
+> **Mild (5–9):** You're carrying some anxiety. Given the number of things most people your age are juggling — work, family, everything else — this isn't surprising. It's worth keeping an eye on. Recheck in 2 weeks to see if it's building or passing.
+
+> **Moderate (10–14):** Your score suggests anxiety that's likely affecting how you function day-to-day — not just "being stressed." This is a signal worth acting on. Talking to a GP or therapist is a reasonable next step, and your score gives you something concrete to bring to that conversation.
+
+> **Severe (15–21):** This score reflects a significant level of anxiety. You've probably been running on empty for a while. Please reach out to someone — a GP, a therapist, or a crisis line. You don't have to carry this alone, and you don't have to wait until things get worse.
 
 ---
 
@@ -225,17 +269,20 @@ Severity Categories:
 
 Shown automatically when score ≥ 10 (Moderate or Severe). Accessible via a link for all scores.
 
-- [ ] "Talk to your GP" — with brief script: "I've been tracking anxiety symptoms and my GAD-7 score is [X]."
-- [ ] "Find a therapist" — deep-link to local mental health directory (configurable per region; v1: Indonesia → Into The Light, Yayasan Pulih)
-- [ ] "Crisis support" — always visible at bottom: Into The Light Indonesia (119 ext 8), or equivalent for user's locale
+- [ ] "Talk to your GP" — with brief script: "I've been tracking anxiety symptoms and my GAD-7 score is [X]. I'd like to talk about what this means." Framed as a conversation starter, not a demand
+- [ ] "Check your Employee Assistance Program (EAP)" — many 9-5 employers offer free, confidential therapy sessions via EAP that employees never use because they don't know it exists; surface this prominently for Moderate/Severe scores
+- [ ] "Find an online therapist" — prioritize online/telehealth options over walk-in clinics, given target users' time constraints (v1 Indonesia: Into The Light, Yayasan Pulih, Into The Light's online referral)
+- [ ] "Crisis support" — always visible at bottom: Into The Light Indonesia (119 ext 8)
 - [ ] Emergency resources never hidden behind score threshold — accessible from any screen via a persistent help icon
+- [ ] For sandwich generation framing: include a note that "getting help for yourself helps everyone who depends on you" — addresses the guilt barrier around self-focus
 
 ---
 
 ### 6.5 History & Trends (Must Have — v1)
 
-- [ ] List view of all past assessments: date, score, severity label
+- [ ] List view of all past assessments: date (including day of week, e.g., "Mon, 5 May"), score, severity label
 - [ ] Simple line chart showing score over time (x-axis: date, y-axis: 0–21, severity bands as background shading)
+- [ ] Day-of-week label on each data point in the chart — helps 9-5 workers identify patterns (e.g., scores consistently higher on Mondays or Fridays before deadline)
 - [ ] Tap a past entry to see full result breakdown
 - [ ] Delete individual entry (with confirmation dialog)
 - [ ] All data stored in local SQLite database (Hive or Drift); no network calls, no sync of any kind — ever
@@ -245,7 +292,10 @@ Shown automatically when score ≥ 10 (Moderate or Severe). Accessible via a lin
 ### 6.6 Reminders (Should Have — v1)
 
 - [ ] After completing assessment, prompt: "Would you like a reminder to check in again?" with date picker defaulting to +14 days
+- [ ] Default reminder time: 7:30 PM on a weekday — after work hours, after dinner, when our users finally have a quiet moment; NOT 9 AM (they're in standup) or 12 PM (they're eating at their desk)
+- [ ] Suggested default day: Sunday evening (7:30 PM Sunday) — captures the pre-week anxiety window that is the most common trigger for our primary persona
 - [ ] Local push notification at selected time
+- [ ] Notification copy should not feel like a task: avoid "Complete your check-in!" — prefer "Hey, how are you doing this week?" or "Two minutes for yourself."
 - [ ] Manage reminders screen (view, edit, delete)
 - [ ] No more than 1 pending reminder at a time (simplicity over power-user features)
 
@@ -311,6 +361,7 @@ This is a hard architectural constraint, not a cost-saving measure. It eliminate
 | Offline | Fully functional with zero network — this is the only operating mode |
 | Network calls | Zero outbound requests from the app (verified via traffic audit before launch) |
 | Accessibility | WCAG 2.1 AA — contrast, touch targets, screen reader |
+| Dark mode | Full dark mode support required — our users are on their phones late at night (post-bedtime doom scroll is a primary trigger moment) |
 | Localization | v1: Indonesian (id) + English (en); architecture must support adding more |
 | Platform | iOS 14+ and Android 8+ |
 | Storage | App size < 30MB installed; local DB expected to stay < 1MB for typical user |
@@ -348,17 +399,21 @@ App
 
 ### Principles
 
-1. **Calm, not clinical** — The aesthetic should feel like a trusted friend, not a hospital form. Avoid white-coat UI patterns.
-2. **Score is the hero** — Every screen either leads to the score or helps the user act on it.
-3. **No dark patterns** — No guilt-trip notifications, no streak pressure, no artificially alarming score presentation.
-4. **Honest copy** — Write like a knowledgeable friend (Mom Test principle: people trust specific, concrete language over corporate hedging).
+1. **Calm, not clinical** — The aesthetic should feel like a trusted friend who happens to know what GAD-7 means, not a hospital form or a corporate wellness portal.
+2. **Score is the hero** — Every screen either leads to the score or helps the user act on it. No filler.
+3. **Respect the 2 minutes** — Every flow is designed for someone who stole time from a busy day. No unnecessary screens, no padding, no upsell moments.
+4. **No dark patterns** — No guilt-trip notifications ("you haven't checked in!"), no streaks, no badges, no artificially alarming score colors.
+5. **Honest, direct copy** — Gen Z and Millennials have strong BS detectors. Write like someone who validates their experience without catastrophizing or minimizing. Avoid corporate wellness clichés ("your wellness journey", "check in with yourself").
+6. **Anti-hustle, anti-self-blame** — Copy acknowledges that systemic pressures (work culture, caregiving load) are real contributors to anxiety, not just individual mindset failures.
 
-### Color Palette Direction
+### Visual Direction
 
-- Background: warm off-white (#F8F4F0 or similar)
-- Primary action: muted teal or forest green (calm, not corporate)
-- Severity colors: derived from accessibility-safe palette (not the default red/yellow/green traffic light)
-- Typography: system font (SF Pro / Roboto) — no custom font loading adds weight without benefit
+- **Dark mode:** Required from day one — late night is a primary trigger moment for our users; the app must not blast them with a white screen at 11 PM
+- **Background:** Deep slate or warm dark in dark mode; warm off-white (#F8F4F0) in light mode
+- **Primary action:** Muted teal or forest green — calm authority, not corporate blue or alarming red
+- **Severity colors:** Derived from an accessibility-safe palette; avoid traffic-light defaults (red/yellow/green carry too much cultural baggage for an anxiety context)
+- **Typography:** System font (SF Pro on iOS, Roboto on Android) — no decorative fonts, no weight-adding custom loading
+- **Motion:** Minimal, purposeful transitions only — no bouncy animations that feel playful in a context that should feel grounded
 
 ---
 
@@ -411,10 +466,12 @@ App
 | # | Question | Owner | Due |
 |---|---|---|---|
 | 1 | Do we need a clinical advisor to review result copy before launch? | PM | Week 1 |
-| 2 | Which crisis resources do we list for the Indonesian market by default? | PM | Week 1 |
+| 2 | Which crisis resources and EAP platforms are most common among Indonesian employers (for the 9-5 worker persona)? | PM | Week 1 |
 | 3 | Is local SQLite sufficient or should we plan for encrypted SQLite (sqlcipher) from day one? | Tech Lead | Week 1 |
-| 4 | Will we localize into Bahasa Indonesia first or ship English-only in beta? | PM | Week 2 |
+| 4 | Will we localize into Bahasa Indonesia first or ship English-only in beta? Given primary persona is Indonesian, Bahasa Indonesia should be default | PM | Week 2 |
 | 5 | Who owns content updates if crisis line numbers change? | PM | Before launch |
+| 6 | Should the history chart distinguish weekday vs weekend data points to help users identify work-week anxiety patterns? | Design | Week 3 |
+| 7 | What is the right default notification time — 7:30 PM weekday or Sunday evening? Validate with 5 users from target persona before shipping reminders | PM | Week 5 |
 
 ---
 
@@ -435,3 +492,4 @@ App
 |---|---|---|---|
 | 1.0 | 2026-05-09 | Product Team | Initial draft |
 | 1.1 | 2026-05-09 | Product Team | Hardened no-backend constraint throughout; added §7 Technical Architecture; updated Out of Scope, Risks, and all v1-qualified language to permanent decisions |
+| 1.2 | 2026-05-09 | Product Team | Refined target users to Gen Z/Millennial 9-5 workers and sandwich generation; updated Problem Statement, copy tone, next steps (EAP), reminders (default time), history (day-of-week), and Design Direction (dark mode, anti-corporate-wellness principles) |

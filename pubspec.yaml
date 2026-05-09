@@ -1,14 +1,19 @@
 name: saujana
-description: "A new Flutter project."
+description: "GAD-7 Anxiety Screening App — fully offline, zero backend."
 publish_to: 'none'
 version: 0.1.0
 
 environment:
   sdk: ^3.10.9
 
+# No network packages allowed. This app makes zero outbound requests.
+# Rejected: http, dio, connectivity_plus, firebase_*, supabase, any analytics SDK.
 dependencies:
   flutter:
     sdk: flutter
+  hive_flutter: ^1.1.0   # local on-device storage
+  google_fonts: ^6.2.1   # DM Serif Display + Plus Jakarta Sans
+  go_router: ^14.6.1     # simple declarative routing
 
 dev_dependencies:
   flutter_test:
